@@ -1,11 +1,15 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ImageBackground, Text, View } from "react-native";
+import Header from "../components/Header";
 
 const IngredientsScreen = () => {
     return (
-        <View>
-            <Text>Ingredients Screen</Text>
-        </View>
+        <ImageBackground
+            style={{ flex: 1, opacity: 0.9 }}
+            resizeMode="cover"
+            source={require('../assets/images/ingredient.jpg')}>
+            <Header title="INGREDIENTS" />
+        </ImageBackground>
     );
 };
 

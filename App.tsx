@@ -11,7 +11,7 @@ import { Text } from 'react-native';
 const Tab = createBottomTabNavigator();
 
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <NavigationContainer >
       <Tab.Navigator
