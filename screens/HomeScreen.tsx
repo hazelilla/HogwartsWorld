@@ -1,54 +1,61 @@
-import React from "react";
-import { Text, View, ImageBackground, SafeAreaView, ScrollView } from "react-native";
+import React, { useEffect } from "react";
+import { Text, View, ImageBackground, FlatList, ScrollView, SafeAreaView } from "react-native";
 import Header from "../components/Header";
+import Card from "../components/Card";
+import axios from "../axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getHouses, setHouses } from "../slices/HouseSlice";
 
 const HomeScreen = () => {
+
+    const housesOfRedux = useSelector(getHouses);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        getHousez();
+    }, []);
+
+    const getHousez = async () => {
+        try {
+            const response = await axios.get('/Houses');
+            dispatch(setHouses(response.data));
+        } catch (err) {
+            console.log('houses error', err);
+        }
+    };
+
+
     return (
-        <ScrollView style={{ flex: 1 }}>
-            <ImageBackground
-                style={{ flex: 1, opacity: 0.9 }}
-                resizeMode="cover"
-                source={require('../assets/images/house.jpg')}>
+        <ImageBackground
+            style={{ flex: 1, opacity: 0.9 }}
+            resizeMode="cover"
+            source={require('../assets/images/house.jpg')}>
+            <SafeAreaView style={{ flex: 1 }}>
 
                 <Header title="HOUSES" />
-                
-                <View>
-                <View style={{backgroundColor: 'white', opacity: 0.6, marginHorizontal: 40, borderRadius: 20, alignItems: 'center', paddingVertical: 30, marginBottom: 20}}>
-                    <Text style={{fontSize: 30, fontWeight: 'bold', color: 'black'}}>Perili kosk</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Color: Purple</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Founder: Babam</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Animal: Tiger</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Element: Safir</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Ghost: Casper</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Room: Bedroom</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Traits: Loyalty</Text>
-                </View>
-                <View style={{backgroundColor: 'white', marginHorizontal: 40, borderRadius: 20, alignItems: 'center', paddingVertical: 30, marginBottom: 20}}>
-                    <Text style={{fontSize: 30, fontWeight: 'bold', color: 'black'}}>Perili kosk</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Color: Purple</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Founder: Babam</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Animal: Tiger</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Element: Safir</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Ghost: Casper</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Room: Bedroom</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Traits: Loyalty</Text>
-                </View>
-                <View style={{backgroundColor: 'white', marginHorizontal: 40, borderRadius: 20, alignItems: 'center', paddingVertical: 30, marginBottom: 20}}>
-                    <Text style={{fontSize: 30, fontWeight: 'bold', color: 'black'}}>Perili kosk</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Color: Purple</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Founder: Babam</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Animal: Tiger</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Element: Safir</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Ghost: Casper</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Room: Bedroom</Text>
-                    <Text style={{fontSize: 20, color: 'black'}}>Traits: Loyalty</Text>
-                </View>
-                </View>
-                
 
-                
-            </ImageBackground>
-        </ScrollView>
+                <View>
+                    <FlatList
+                        scrollEnabled={true}
+                        data={housesOfRedux}
+                        keyExtractor={item => item.id.toString()}
+                        renderItem={({ item }) => (
+                            <Card
+                                name={item.name}
+                                houseColours={item.houseColours}
+                                founder={item.founder}
+                                animal={item.animal}
+                                element={item.element}
+                                ghost={item.ghost}
+                                commonRoom={item.commonRoom}
+
+                            />
+                        )}
+                    />
+
+                </View>
+            </SafeAreaView>
+        </ImageBackground>
     );
 };
 
