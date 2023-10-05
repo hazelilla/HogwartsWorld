@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Text, View, ImageBackground, FlatList, ScrollView, SafeAreaView } from "react-native";
 import Header from "../components/Header";
-import Card from "../components/Card";
+import HouseCard from "../components/HouseCard";
 import axios from "../axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getHouses, setHouses } from "../slices/HouseSlice";
@@ -34,13 +34,13 @@ const HomeScreen = () => {
 
                 <Header title="HOUSES" />
 
-                <View>
+                <View style={{flex: 1}}>
                     <FlatList
                         scrollEnabled={true}
                         data={housesOfRedux}
                         keyExtractor={item => item.id.toString()}
                         renderItem={({ item }) => (
-                            <Card
+                            <HouseCard
                                 name={item.name}
                                 houseColours={item.houseColours}
                                 founder={item.founder}

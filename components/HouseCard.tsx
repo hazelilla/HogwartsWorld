@@ -2,8 +2,16 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
 
-const Card = ({ name, houseColours, founder, animal, element, ghost, commonRoom, }
-    : { name: string, houseColours: string, founder: string, animal: string, element: string, ghost: string, commonRoom: any }) => {
+const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom }
+    : {
+        name: string,
+        houseColours: string,
+        founder: string,
+        animal: string,
+        element: string,
+        ghost: string,
+        commonRoom: any
+    }) => {
     return (
         <View style={styles.container}>
 
@@ -58,4 +66,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-export default Card;
+export default HouseCard;
