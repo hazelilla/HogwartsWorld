@@ -1,42 +1,29 @@
-import React from "react";
-import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { FlatList, ImageBackground, SafeAreaView, View } from "react-native";
 import Header from "../components/Header";
 import SpellCard from "../components/SpellCard";
+import axios from "../axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getSpell, setSpell } from "../slices/SpellSlice";
 
 const SpellsScreen = () => {
-    const spell = [
-        {
-            id: 1,
-            name: "Ela",
-            incantation: "SJjfdj",
-            effect: "ksdhsjdh",
-            canBeVerbal: true,
-            type: "skdks",
-            light: "sdj",
-            creator: "God"
-        },
-        {
-            id: 2,
-            name: "Ela",
-            incantation: "SJjfdj",
-            effect: "ksdhsjdh",
-            canBeVerbal: true,
-            type: "skdks",
-            light: "sdj",
-            creator: "God"
-        },
-        {
-            id: 3,
-            name: "Ela",
-            incantation: "SJjfdj",
-            effect: "ksdhsjdh",
-            canBeVerbal: false,
-            type: "skdks",
-            light: "sdj",
-            creator: "God"
-        },
 
-    ]
+    const spellOfRedux = useSelector(getSpell);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        getSpells();
+    }, []);
+    
+    const getSpells = async () => {
+        try {
+            const response = await axios.get('/Spells');
+            dispatch(setSpell(response.data));
+        } catch (err) {
+            console.log('wizards error', err);
+        }
+    }
+
     return (
         <ImageBackground
             style={{ flex: 1, opacity: 0.9 }}
@@ -50,17 +37,15 @@ const SpellsScreen = () => {
                 <View style={{ flex: 1 }}>
                     <FlatList
                         scrollEnabled={true}
-                        data={spell}
+                        data={spellOfRedux}
                         keyExtractor={item => item.id.toString()}
                         renderItem={({ item }) => (
                             <SpellCard
                                 name={item.name}
                                 incantation={item.incantation}
                                 effect={item.effect}
-                                canBeVerbal={item.canBeVerbal}
                                 type={item.type}
                                 light={item.light}
-                                creator={item.creator}
 
                             />
                         )}

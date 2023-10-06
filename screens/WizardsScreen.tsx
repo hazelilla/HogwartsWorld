@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, View, ImageBackground, SafeAreaView, FlatList } from "react-native";
+import { View, ImageBackground, SafeAreaView, FlatList } from "react-native";
 import Header from "../components/Header";
 import WizardCard from "../components/WizardCard";
 import axios from "../axios";
