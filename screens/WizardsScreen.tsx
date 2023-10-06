@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { View, ImageBackground, SafeAreaView, FlatList } from "react-native";
+import { ImageBackground, SafeAreaView, FlatList } from "react-native";
+import { View } from 'react-native-ui-lib';
 import Header from "../components/Header";
 import WizardCard from "../components/WizardCard";
 import axios from "../axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getWizards, setWizards } from "../slices/WizardSlice";
+import globalStyling from "../assets/style/globalStyling";
 
 const WizardsScreen = () => {
 
@@ -26,15 +28,15 @@ const WizardsScreen = () => {
 
     return (
         <ImageBackground
-            style={{ flex: 1, opacity: 0.9 }}
+            style={globalStyling.imageBackground}
             resizeMode="cover"
             source={require('../assets/images/wizard.jpg')}>
 
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={globalStyling.flex}>
 
                 <Header title="WIZARDS" />
 
-                <View style={{ flex: 1 }}>
+                <View flex>
                     <FlatList
                         scrollEnabled={true}
                         data={wizardsOfRedux}

@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { FlatList, ImageBackground, SafeAreaView, View } from "react-native";
+import { FlatList, ImageBackground, SafeAreaView } from "react-native";
+import { View } from 'react-native-ui-lib';
 import Header from "../components/Header";
 import SpellCard from "../components/SpellCard";
 import axios from "../axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpell, setSpell } from "../slices/SpellSlice";
+import globalStyling from "../assets/style/globalStyling";
 
 const SpellsScreen = () => {
 
@@ -26,15 +28,15 @@ const SpellsScreen = () => {
 
     return (
         <ImageBackground
-            style={{ flex: 1, opacity: 0.9 }}
+            style={globalStyling.imageBackground}
             resizeMode="cover"
             source={require('../assets/images/HP.jpg')}>
 
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={globalStyling.flex}>
 
                 <Header title="SPELLS" />
 
-                <View style={{ flex: 1 }}>
+                <View flex>
                     <FlatList
                         scrollEnabled={true}
                         data={spellOfRedux}
@@ -46,7 +48,6 @@ const SpellsScreen = () => {
                                 effect={item.effect}
                                 type={item.type}
                                 light={item.light}
-
                             />
                         )}
                     />

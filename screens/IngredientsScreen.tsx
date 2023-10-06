@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native";
+import { FlatList, ImageBackground, SafeAreaView } from "react-native";
+import { View } from 'react-native-ui-lib';
 import Header from "../components/Header";
 import IngredientCard from "../components/IngredientCard";
 import axios from "../axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getIngredients, setIngredient } from "../slices/IngredientSlice";
+import globalStyling from "../assets/style/globalStyling";
 
 const IngredientsScreen = () => {
     const ingredientsOfRedux = useSelector(getIngredients);
@@ -24,16 +26,16 @@ const IngredientsScreen = () => {
     }
     return (
         <ImageBackground
-            style={{ flex: 1, opacity: 0.9 }}
+            style={globalStyling.imageBackground}
             resizeMode="cover"
             source={require('../assets/images/ingredient.jpg')}>
 
 
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={globalStyling.flex}>
 
                 <Header title="INGREDIENTS" />
 
-                <View style={{ flex: 1 }}>
+                <View flex>
                     <FlatList
                         scrollEnabled={true}
                         data={ingredientsOfRedux}
@@ -41,7 +43,6 @@ const IngredientsScreen = () => {
                         renderItem={({ item }) => (
                             <IngredientCard
                                 name={item.name}
-
                             />
                         )}
                     />

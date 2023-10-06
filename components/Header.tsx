@@ -1,12 +1,41 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import { View, Text, Typography } from 'react-native-ui-lib';
 
-const Header = ({title} : {title: string}) => {
+Typography.loadTypographies({
+    title: { fontSize: 45, color: "white", fontWeight: "bold"}
+});
+
+const Header = ({ title }: { title: string }) => {
     return (
-        <View style={{backgroundColor: "purple", marginVertical: 30, marginHorizontal: 50, borderRadius: 20, opacity: 0.8}}>
-            <Text style={{fontSize: 45, textAlign: 'center', color: "white", fontWeight: 'bold'}}>{title}</Text>
+        <View bg-black marginV-30 marginH-50 style={styles.container}>
+            <Text title center>{title}</Text>
         </View>
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'purple',
+        opacity: 0.8,
+        borderRadius: 20
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'black',
+        marginBottom: 10
+    },
+    text: {
+        fontSize: 23,
+        color: 'black'
+    },
+    type: {
+        fontSize: 24,
+        color: 'black',
+        fontWeight: 'bold'
+    }
+});
+
 export default Header;
+

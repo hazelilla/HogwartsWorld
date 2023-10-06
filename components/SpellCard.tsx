@@ -1,6 +1,12 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { View, Text, Typography } from 'react-native-ui-lib';
 
+Typography.loadTypographies({
+    title: { fontSize: 30, fontWeight: 'bold', color: 'black' },
+    text: { fontSize: 23, color: 'black' },
+    type: { fontSize: 24, color: 'black', fontWeight: 'bold' }
+});
 
 const SpellCard = ({ name, incantation, effect, type, light }
     : {
@@ -11,35 +17,30 @@ const SpellCard = ({ name, incantation, effect, type, light }
         light: any
     }) => {
     return (
-        <View style={styles.container}>
+        <View marginH-30 marginB-20 paddingV-20 paddingL-20 style={styles.container}>
 
-            <Text style={styles.title} numberOfLines={2}>{name}</Text>
-
-
+            <Text title center marginB-10 numberOfLines={2}>{name}</Text>
 
             <View style={{ alignItems: 'flex-start', width: "70%" }}>
-                <View style={{ flexDirection: 'row', width: "80%"}}>
-                    <Text style={styles.type} numberOfLines={3}>Incantation:</Text>
-                    <Text style={styles.text}>{incantation}</Text>
+                <View style={{ flexDirection: 'row', width: "80%" }}>
+                    <Text marginB-20 marginR-10 type numberOfLines={3}>Incantation:</Text>
+                    <Text marginB-20 center text>{incantation}</Text>
                 </View>
 
                 <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.type} numberOfLines={3}>Effect:</Text>
-                    <Text style={styles.text}>{effect}</Text>
+                    <Text marginB-20 marginR-10 type numberOfLines={3}>Effect:</Text>
+                    <Text marginB-20 center text>{effect}</Text>
                 </View>
 
                 <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.type}>Type:</Text>
-                    <Text style={styles.text}>{type}</Text>
+                    <Text marginB-20 marginR-10 type>Type:</Text>
+                    <Text marginB-20 center text>{type}</Text>
                 </View>
 
                 <View style={{ flexDirection: 'row' }}>
-                    <Text style={styles.type}>Light:</Text>
-                    <Text style={styles.text}>{light}</Text>
+                    <Text marginB-20 marginR-10 type>Light:</Text>
+                    <Text marginB-20 center text>{light}</Text>
                 </View>
-
-
-
 
             </View>
         </View>
@@ -50,36 +51,9 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         opacity: 0.8,
-        marginHorizontal: 30,
         borderRadius: 20,
-        paddingVertical: 30,
-        marginBottom: 20,
         width: "95%",
         alignSelf: 'center',
-        paddingLeft: 20
-    },
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: 'black',
-        width: "90%",
-        textAlign: 'center',
-        marginBottom: 10
-    },
-    text: {
-        fontSize: 23,
-        color: 'black',
-
-        marginBottom: 20,
-        justifyContent: 'center'
-    },
-
-    type: {
-        fontSize: 24,
-        color: 'black',
-        fontWeight: 'bold',
-        marginBottom: 20,
-        marginRight: 10
     }
 });
 export default SpellCard;

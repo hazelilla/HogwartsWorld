@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { Text, View, ImageBackground, FlatList, ScrollView, SafeAreaView } from "react-native";
-import Header from "../components/Header";
+import { ImageBackground, FlatList, SafeAreaView } from "react-native";
+import { View } from 'react-native-ui-lib';
+import Header from "../components/Header"; 
 import HouseCard from "../components/HouseCard";
 import axios from "../axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getHouses, setHouses } from "../slices/HouseSlice";
+import globalStyling from "../assets/style/globalStyling";
 
 const HomeScreen = () => {
 
@@ -27,14 +29,14 @@ const HomeScreen = () => {
 
     return (
         <ImageBackground
-            style={{ flex: 1, opacity: 0.9 }}
+            style={globalStyling.imageBackground}
             resizeMode="cover"
             source={require('../assets/images/house.jpg')}>
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={globalStyling.flex}>
 
                 <Header title="HOUSES" />
 
-                <View style={{flex: 1}}>
+                <View flex>
                     <FlatList
                         scrollEnabled={true}
                         data={housesOfRedux}
@@ -48,7 +50,6 @@ const HomeScreen = () => {
                                 element={item.element}
                                 ghost={item.ghost}
                                 commonRoom={item.commonRoom}
-
                             />
                         )}
                     />

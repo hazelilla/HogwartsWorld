@@ -1,6 +1,12 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { View, Text, Typography } from 'react-native-ui-lib';
 
+Typography.loadTypographies({
+    title: { fontSize: 30, fontWeight: 'bold', color: 'black' },
+    text: { fontSize: 23, color: 'black' },
+    type: { fontSize: 24, color: 'black', fontWeight: 'bold' }
+});
 
 const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom }
     : {
@@ -13,27 +19,27 @@ const HouseCard = ({ name, houseColours, founder, animal, element, ghost, common
         commonRoom: any
     }) => {
     return (
-        <View style={styles.container}>
+        <View marginH-25 paddingV-30 marginB-20 center style={styles.container}>
 
-            <Text style={styles.title}>{name}</Text>
+            <Text title marginB-10>{name}</Text>
 
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <View style={{ marginRight: 5, paddingHorizontal: 3 }}>
-                    <Text style={styles.type}>Color:</Text>
-                    <Text style={styles.type}>Founder:</Text>
-                    <Text style={styles.type}>Animal:</Text>
-                    <Text style={styles.type}>Element:</Text>
-                    <Text style={styles.type}>Ghost:</Text>
-                    <Text style={styles.type}>Room:</Text>
+                    <Text type>Color:</Text>
+                    <Text type>Founder:</Text>
+                    <Text type>Animal:</Text>
+                    <Text type>Element:</Text>
+                    <Text type>Ghost:</Text>
+                    <Text type>Room:</Text>
                 </View>
 
                 <View style={{}}>
-                    <Text style={styles.text}>{houseColours}</Text>
-                    <Text style={styles.text}>{founder}</Text>
-                    <Text style={styles.text}>{animal}</Text>
-                    <Text style={styles.text}>{element}</Text>
-                    <Text style={styles.text}>{ghost}</Text>
-                    <Text style={styles.text}>{commonRoom}</Text>
+                    <Text text>{houseColours}</Text>
+                    <Text text>{founder}</Text>
+                    <Text text>{animal}</Text>
+                    <Text text>{element}</Text>
+                    <Text text>{ghost}</Text>
+                    <Text text>{commonRoom}</Text>
                 </View>
             </View>
         </View>
@@ -44,26 +50,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         opacity: 0.8,
-        marginHorizontal: 30,
-        borderRadius: 20,
-        alignItems: 'center',
-        paddingVertical: 30,
-        marginBottom: 20
-    },
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: 'black',
-        marginBottom: 10
-    },
-    text: {
-        fontSize: 23,
-        color: 'black'
-    },
-    type: {
-        fontSize: 24,
-        color: 'black',
-        fontWeight: 'bold'
+        borderRadius: 20
     }
 });
 export default HouseCard;
