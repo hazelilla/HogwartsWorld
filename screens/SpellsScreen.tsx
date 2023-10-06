@@ -20,7 +20,7 @@ const SpellsScreen = () => {
             const response = await axios.get('/Spells');
             dispatch(setSpell(response.data));
         } catch (err) {
-            console.log('wizards error', err);
+            console.log('spells error', err);
         }
     }
 

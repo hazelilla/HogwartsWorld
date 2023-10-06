@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'black'
+        color: 'black',
+        marginBottom: 10
     },
     text: {
         fontSize: 23,
         color: 'black'
     },
-
     type: {
         fontSize: 24,
         color: 'black',
