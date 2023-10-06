@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native";
 import Header from "../components/Header";
 import IngredientCard from "../components/IngredientCard";
+import axios from "../axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getIngredients, setIngredient } from "../slices/IngredientSlice";
 
 const IngredientsScreen = () => {
-    const ingredients = [
-        {
-            id: 1,
-            name: "Domates"
-        },
-        {
-            id: 2,
-            name: "Biber"
-        },
-        {
-            id: 3,
-            name: "Patlican"
-        },
-        {
-            id: 4,
-            name: "Sogan"
-        },
-    ]
+    const ingredientsOfRedux = useSelector(getIngredients);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        getIngredientz();
+    }, []);
+
+    const getIngredientz = async () => {
+        try {
+            const response = await axios.get('/Ingredients');
+            dispatch(setIngredient(response.data));
+        } catch (err) {
+            console.log('ingredients error', err);
+        }
+    }
     return (
         <ImageBackground
             style={{ flex: 1, opacity: 0.9 }}
@@ -36,7 +36,7 @@ const IngredientsScreen = () => {
                 <View style={{ flex: 1 }}>
                     <FlatList
                         scrollEnabled={true}
-                        data={ingredients}
+                        data={ingredientsOfRedux}
                         keyExtractor={item => item.id.toString()}
                         renderItem={({ item }) => (
                             <IngredientCard

@@ -14,7 +14,7 @@ const SpellsScreen = () => {
     useEffect(() => {
         getSpells();
     }, []);
-    
+
     const getSpells = async () => {
         try {
             const response = await axios.get('/Spells');
