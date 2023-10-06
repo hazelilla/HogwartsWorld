@@ -4,21 +4,21 @@ import Header from "../components/Header";
 import WizardCard from "../components/WizardCard";
 import axios from "../axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getHouses, setHouses } from "../slices/HouseSlice";
+import { getWizards, setWizards } from "../slices/WizardSlice";
 
 const WizardsScreen = () => {
 
-    const wizardsOfRedux = useSelector(getHouses);
+    const wizardsOfRedux = useSelector(getWizards);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        getWizards();
+        getWizardz();
     }, []);
 
-    const getWizards = async () => {
+    const getWizardz = async () => {
         try {
             const response = await axios.get('/Wizards');
-            dispatch(setHouses(response.data));
+            dispatch(setWizards(response.data));
         } catch (err) {
             console.log('wizards error', err);
         }
