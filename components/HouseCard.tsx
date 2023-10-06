@@ -3,9 +3,9 @@ import { StyleSheet } from "react-native";
 import { View, Text, Typography } from 'react-native-ui-lib';
 
 Typography.loadTypographies({
-    title: { fontSize: 30, fontWeight: 'bold', color: 'black' },
-    text: { fontSize: 23, color: 'black' },
-    type: { fontSize: 24, color: 'black', fontWeight: 'bold' }
+    title: { fontSize: 40, fontFamily: "Caveat-Bold", color: 'black' },
+    text: { fontSize: 35, color: 'black', fontFamily: "Caveat-Regular" },
+    type: { fontSize: 30, color: 'black', fontFamily: "Caveat-Bold" }
 });
 
 const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom }

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { View, Text, Typography } from 'react-native-ui-lib';
 
 Typography.loadTypographies({
-    title: { fontSize: 30, fontWeight: 'bold', color: 'black' }
+    title: { fontSize: 40, fontFamily: "Caveat-Bold", color: 'black' }
 });
 
 const IngredientCard = ({ name }

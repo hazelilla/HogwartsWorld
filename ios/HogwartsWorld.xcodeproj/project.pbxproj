@@ -14,6 +14,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-HogwartsWorld-HogwartsWorldTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-HogwartsWorld-HogwartsWorldTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4BF2863C05924FFBAB7E6E8B /* Caveat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DAB73AA3AD340AD907C6183 /* Caveat-Bold.ttf */; };
+		917532295D524770955C5AE1 /* Caveat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56A8472D739E44F89CBC7BED /* Caveat-Medium.ttf */; };
+		94DE02586DC54F9B92AAA0A8 /* Caveat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3501BCF040D54C9394949ECD /* Caveat-Regular.ttf */; };
+		72E758E0F86040A3A302EAFF /* Caveat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6ADFD15EDD74F3D9A4C6EF3 /* Caveat-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HogwartsWorld/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-HogwartsWorld-HogwartsWorldTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HogwartsWorld-HogwartsWorldTests.release.xcconfig"; path = "Target Support Files/Pods-HogwartsWorld-HogwartsWorldTests/Pods-HogwartsWorld-HogwartsWorldTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		7DAB73AA3AD340AD907C6183 /* Caveat-Bold.ttf */ = {isa = PBXFileReference; name = "Caveat-Bold.ttf"; path = "../assets/fonts/Caveat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		56A8472D739E44F89CBC7BED /* Caveat-Medium.ttf */ = {isa = PBXFileReference; name = "Caveat-Medium.ttf"; path = "../assets/fonts/Caveat-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3501BCF040D54C9394949ECD /* Caveat-Regular.ttf */ = {isa = PBXFileReference; name = "Caveat-Regular.ttf"; path = "../assets/fonts/Caveat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D6ADFD15EDD74F3D9A4C6EF3 /* Caveat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Caveat-SemiBold.ttf"; path = "../assets/fonts/Caveat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				11442A6F0816413282DFB52B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +156,18 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		11442A6F0816413282DFB52B /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				7DAB73AA3AD340AD907C6183 /* Caveat-Bold.ttf */,
+				56A8472D739E44F89CBC7BED /* Caveat-Medium.ttf */,
+				3501BCF040D54C9394949ECD /* Caveat-Regular.ttf */,
+				D6ADFD15EDD74F3D9A4C6EF3 /* Caveat-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +265,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4BF2863C05924FFBAB7E6E8B /* Caveat-Bold.ttf in Resources */,
+				917532295D524770955C5AE1 /* Caveat-Medium.ttf in Resources */,
+				94DE02586DC54F9B92AAA0A8 /* Caveat-Regular.ttf in Resources */,
+				72E758E0F86040A3A302EAFF /* Caveat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
