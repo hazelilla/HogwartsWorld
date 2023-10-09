@@ -1,14 +1,14 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { View, Text, Typography } from 'react-native-ui-lib';
+import DetailsModal from '../modals/DetailsModal';
+import TextLine from '../components/TextLine';
 
 Typography.loadTypographies({
-    title: { fontSize: 40, fontFamily: "Caveat-Bold", color: 'black' },
-    text: { fontSize: 30, color: 'black', fontFamily: "Caveat-Regular" },
-    type: { fontSize: 35, color: 'black', fontFamily: "Caveat-Bold" }
+    type: { fontSize: 30, color: 'black', fontFamily: "Caveat-Bold" }
 });
 
-const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom, heads, traits }
+const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom, id }
     : {
         name: string,
         houseColours: string,
@@ -17,9 +17,11 @@ const HouseCard = ({ name, houseColours, founder, animal, element, ghost, common
         element: string,
         ghost: string,
         commonRoom: any,
-        heads: { firstName: string, lastName: string }[],
-        traits: { name: string }[]
+        id: number
     }) => {
+
+    const [modalVisible, setModalVisible] = useState(false);
+
     return (
         <View marginH-25 paddingV-30 marginB-20 center style={styles.container}>
 
@@ -28,44 +30,30 @@ const HouseCard = ({ name, houseColours, founder, animal, element, ghost, common
             <View center>
 
                 <View marginL-10 style={{}}>
-                    <View style={{ flexDirection: 'row'}}>
-                        <Text type marginR-10>Color:</Text>
-                        <Text text>{houseColours}</Text>
-                    </View>
 
-                    <View style={{ flexDirection: 'row' }}>
-                        <Text type marginR-10>Founder:</Text>
-                        <Text text>{founder}</Text>
-                    </View>
+                    <TextLine type="Color:" text={houseColours}/>
+                    <TextLine type="Founder:" text={founder}/>
+                    <TextLine type="Animal:" text={animal}/>
+                    <TextLine type="Element:" text={element}/>
+                    <TextLine type="Ghost:" text={ghost}/>
+                    <TextLine type="Room:" text={commonRoom}/>
 
-                    <View style={{ flexDirection: 'row' }}>
-                        <Text type marginR-10>Animal:</Text>
-                        <Text text>{animal}</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row'}}>
-                        <Text type marginR-10>Element:</Text>
-                        <Text text>{element}</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row' }}>
-                        <Text type marginR-10>Ghost:</Text>
-                        <Text text>{ghost}</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row' }}>
-                        <Text type marginR-10>Room:</Text>
-                        <Text text>{commonRoom}</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row', width: "80%" }}>
-                        <Text type marginR-10>Heads:</Text>
-                        <Text text>{heads.map((head, index) => `${head.firstName} ${head.lastName}`).join(", ")}</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row', width: "80%" }}>
-                        <Text type marginR-10>Traits:</Text>
-                        <Text text>{traits.map((trait, index) => trait.name).join(", ")}</Text>
+                    <View>
+                        {modalVisible && (
+                            < DetailsModal
+                                visible={true}
+                                hideModal={() => setModalVisible(false)}
+                                id={id}
+                            />
+                        )}
+                        <TouchableOpacity
+                            onPress={() => { setModalVisible(true); }}
+                            style={styles.touchable}>
+                            <View>
+                                <Text type>Heads...</Text>
+                                <Text type>Traits...</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
 
                 </View>
@@ -79,6 +67,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         opacity: 0.8,
         borderRadius: 20
+    },
+
+    touchable: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        borderBottomWidth: 1,
+        marginTop: 20
     }
 });
 export default HouseCard;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ImageBackground, FlatList, SafeAreaView } from "react-native";
 import { View } from 'react-native-ui-lib';
-import Header from "../components/Header"; 
+import Header from "../components/Header";
 import HouseCard from "../components/HouseCard";
 import axios from "../axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,8 +50,7 @@ const HomeScreen = () => {
                                 element={item.element}
                                 ghost={item.ghost}
                                 commonRoom={item.commonRoom}
-                                heads={item.heads}
-                                traits={item.traits}
+                                id={item.id}
                             />
                         )}
                     />
