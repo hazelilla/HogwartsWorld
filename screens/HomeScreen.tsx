@@ -50,6 +50,8 @@ const HomeScreen = () => {
                                 element={item.element}
                                 ghost={item.ghost}
                                 commonRoom={item.commonRoom}
+                                heads={item.heads}
+                                traits={item.traits}
                             />
                         )}
                     />

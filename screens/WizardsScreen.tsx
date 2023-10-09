@@ -45,6 +45,7 @@ const WizardsScreen = () => {
                             <WizardCard
                                 firstName={item?.firstName}
                                 lastName={item?.lastName}
+                                elixirs={item.elixirs}
                             />
                         )}
                     />

@@ -4,11 +4,11 @@ import { View, Text, Typography } from 'react-native-ui-lib';
 
 Typography.loadTypographies({
     title: { fontSize: 40, fontFamily: "Caveat-Bold", color: 'black' },
-    text: { fontSize: 35, color: 'black', fontFamily: "Caveat-Regular" },
-    type: { fontSize: 30, color: 'black', fontFamily: "Caveat-Bold" }
+    text: { fontSize: 30, color: 'black', fontFamily: "Caveat-Regular" },
+    type: { fontSize: 35, color: 'black', fontFamily: "Caveat-Bold" }
 });
 
-const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom }
+const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom, heads, traits }
     : {
         name: string,
         houseColours: string,
@@ -16,30 +16,58 @@ const HouseCard = ({ name, houseColours, founder, animal, element, ghost, common
         animal: string,
         element: string,
         ghost: string,
-        commonRoom: any
+        commonRoom: any,
+        heads: { firstName: string, lastName: string }[],
+        traits: { name: string }[]
     }) => {
     return (
         <View marginH-25 paddingV-30 marginB-20 center style={styles.container}>
 
             <Text title marginB-10>{name}</Text>
 
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <View style={{ marginRight: 5, paddingHorizontal: 3 }}>
-                    <Text type>Color:</Text>
-                    <Text type>Founder:</Text>
-                    <Text type>Animal:</Text>
-                    <Text type>Element:</Text>
-                    <Text type>Ghost:</Text>
-                    <Text type>Room:</Text>
-                </View>
+            <View center>
 
-                <View style={{}}>
-                    <Text text>{houseColours}</Text>
-                    <Text text>{founder}</Text>
-                    <Text text>{animal}</Text>
-                    <Text text>{element}</Text>
-                    <Text text>{ghost}</Text>
-                    <Text text>{commonRoom}</Text>
+                <View marginL-10 style={{}}>
+                    <View style={{ flexDirection: 'row'}}>
+                        <Text type marginR-10>Color:</Text>
+                        <Text text>{houseColours}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text type marginR-10>Founder:</Text>
+                        <Text text>{founder}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text type marginR-10>Animal:</Text>
+                        <Text text>{animal}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row'}}>
+                        <Text type marginR-10>Element:</Text>
+                        <Text text>{element}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text type marginR-10>Ghost:</Text>
+                        <Text text>{ghost}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text type marginR-10>Room:</Text>
+                        <Text text>{commonRoom}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', width: "80%" }}>
+                        <Text type marginR-10>Heads:</Text>
+                        <Text text>{heads.map((head, index) => `${head.firstName} ${head.lastName}`).join(", ")}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', width: "80%" }}>
+                        <Text type marginR-10>Traits:</Text>
+                        <Text text>{traits.map((trait, index) => trait.name).join(", ")}</Text>
+                    </View>
+
                 </View>
             </View>
         </View>
