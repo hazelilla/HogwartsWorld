@@ -7,8 +7,6 @@ import SpellsScreen from '../screens/SpellsScreen';
 import IngredientsScreen from '../screens/IngredientsScreen';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
-
 const TabNavigator = () => {
 
     const Tab = createBottomTabNavigator();

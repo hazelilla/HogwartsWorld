@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
-import { View, Text, Typography } from 'react-native-ui-lib';
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text } from 'react-native-ui-lib';
 import DetailsModal from '../modals/DetailsModal';
 import TextLine from '../components/TextLine';
 
-Typography.loadTypographies({
-    type: { fontSize: 30, color: 'black', fontFamily: "Caveat-Bold" }
-});
 
 const HouseCard = ({ name, houseColours, founder, animal, element, ghost, commonRoom, id }
     : {

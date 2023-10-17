@@ -1,10 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { View, Text, Typography } from 'react-native-ui-lib';
+import { View, Text } from 'react-native-ui-lib';
 
-Typography.loadTypographies({
-    title: { fontSize: 40, fontFamily: "Caveat-Bold", color: 'black' }
-});
 
 const IngredientCard = ({ name }
     : {

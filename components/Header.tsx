@@ -1,10 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { View, Text, Typography } from 'react-native-ui-lib';
-
-Typography.loadTypographies({
-    header: { fontSize: 55, color: "white", fontFamily: "Caveat-Bold" }
-});
+import { View, Text  } from 'react-native-ui-lib';
 
 const Header = ({ title }: { title: string }) => {
     return (

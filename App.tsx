@@ -9,6 +9,7 @@ import OnBoardingScreen from './screens/OnBoardingScreen';
 import WizardsScreen from './screens/WizardsScreen';
 import SpellsScreen from './screens/SpellsScreen';
 import IngredientsScreen from './screens/IngredientsScreen';
+import './styles/typography';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 

@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-    TouchableOpacity
-} from 'react-native';
-import { View, Text, Typography } from 'react-native-ui-lib';
+import { TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native-ui-lib';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import axios from "../axios";
 
-
-Typography.loadTypographies({
-    title: { fontSize: 40, fontFamily: "Caveat-Bold", color: 'black' },
-    text: { fontSize: 30, color: 'black', fontFamily: "Caveat-Regular" },
-    type: { fontSize: 30, color: 'black', fontFamily: "Caveat-Bold" }
-});
 
 const DetailsModal = ({ visible, hideModal, id }
     : {
@@ -21,7 +13,7 @@ const DetailsModal = ({ visible, hideModal, id }
         id: number
     }) => {
 
-    const [house, setHouse] = useState<any>(null); 
+    const [house, setHouse] = useState<any>(null);
 
     useEffect(() => {
         getHousesById(id);
@@ -37,7 +29,7 @@ const DetailsModal = ({ visible, hideModal, id }
     };
 
     if (house === null) {
-        return null; 
+        return null;
     }
 
     return (

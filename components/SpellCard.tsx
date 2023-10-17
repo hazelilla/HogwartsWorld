@@ -1,11 +1,8 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { View, Text, Typography } from 'react-native-ui-lib';
+import { View, Text } from 'react-native-ui-lib';
 import TextLine from '../components/TextLine';
 
-Typography.loadTypographies({
-    title: { fontSize: 40, fontFamily: "Caveat-Bold", color: 'black' }
-});
 
 const SpellCard = ({ name, incantation, effect, type, light }
     : {
